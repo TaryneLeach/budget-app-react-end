@@ -1,6 +1,6 @@
 
 
-const New = () => {
+function New () {
 
 }
 

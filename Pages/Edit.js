@@ -1,8 +1,7 @@
 
 
-const Edit = () => {
+function Edit () {
 
 }
-
 
 export default Edit;

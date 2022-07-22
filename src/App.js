@@ -6,7 +6,8 @@ import Show from './Components/Show.js';
 import New from './Components/New.js';
 import Edit from './Components/Edit.js';
 
-const PORT = process.env.PORT || 3003;
+
+
 function App() {
 	return (
 		<div className='App'>
@@ -15,7 +16,7 @@ function App() {
 				<Route path='/transactions' element={<Index />}></Route>
 				<Route path='/transactions/:id' element={<Show />}></Route>
 				<Route path='/transactions/new' element={<New />}></Route>
-				<Route path='/transactions/new' element={<Edit />}></Route>
+				<Route path='/transactions/:id/edit' element={<Edit />}></Route>
 			</Routes>
 		</div>
 	);
