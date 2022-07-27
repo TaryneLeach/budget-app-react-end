@@ -1,0 +1,10 @@
+h2 {
+    font-family: Georgia;
+    text-decoration: underline;
+    color:rgb(97, 40, 151);
+
+}
+
+.show-list {
+    list-style: none;
+}

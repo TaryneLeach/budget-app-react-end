@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import React from 'react'
-
+import React from 'react';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -15,19 +14,14 @@ function TransactionEdit() {
 		category: '',
 	});
 
-	let id = useParams();
-	const navigate = useNavigate()
+	let { id } = useParams();
+	const navigate = useNavigate();
 
-
-	const formEdit = (event) => {
-		setTransaction({ ...transaction, [event.target.id]: event.target.value });
-	};
-
-	const formSubmission = (event) => {
-		event.preventDefault();
+	const handleUpdate = (event) => {
 		axios
 			.put(`${API}/transactions/${id}`, transaction)
-			.then(() => {
+			.then((res) => {
+				setTransaction(res.data);
 				navigate(`/transactions/${id}`);
 			})
 			.catch((error) => {
@@ -44,12 +38,25 @@ function TransactionEdit() {
 			.catch((error) => console.log(error));
 	}, [id]);
 
+	const formEdit = (event) => {
+		setTransaction({ ...transaction, [event.target.id]: event.target.value });
+	};
+
+	const formSubmission = (event) => {
+		event.preventDefault();
+		handleUpdate(transaction);
+	};
+
 	return (
 		<div>
 			<form onSubmit={formSubmission} className='edit-form'>
 				<label>
 					{' '}
-					<input type='date' onChange={formEdit}></input>
+					<input
+						type='date'
+						value={transaction.date}
+						onChange={formEdit}
+					></input>
 				</label>
 				<label>
 					{' '}
@@ -79,7 +86,7 @@ function TransactionEdit() {
 						placeholder='from'
 						onChange={formEdit}
 					></input>
-					<button type="submit">Complete Edit Form</button>
+					<button type='submit'>Complete Edit Form</button>
 				</label>
 			</form>
 		</div>

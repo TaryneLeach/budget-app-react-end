@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const API = process.env.REACT_APP_API_URL;
 
 function TransactionNew() {
-	let id = useParams();
+	
 	const navigate = useNavigate();
 
 	const [transaction, setTransaction] = useState({
@@ -23,19 +23,15 @@ function TransactionNew() {
 	//handles submitting the form
 	const formSubmission = (event) => {
 		event.preventDefault();
-		axios
-			.put(`${API}/transactions/`, transaction)
-			.then(() => {
-				navigate('/transactions');
-			})
-			
+		axios.post(`${API}/transactions`, transaction).then(() => {
+			navigate('/transactions');
+		});
 	};
 
 	// handling select category option
 	// const handleCategory = (event) => {
 	// 	setTransaction({ ...transaction, [event.target.category]: event.target.value });
 	// };
-	
 
 	return (
 		<div>
@@ -84,7 +80,7 @@ function TransactionNew() {
 					{transaction.category}
 					</option>
 				</select> */}
-				<button type="submit">Complete New Transaction</button>
+				<button type='submit'>Complete New Transaction</button>
 			</form>
 		</div>
 	);

@@ -3,6 +3,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './TransactionShow.css'
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -32,8 +33,8 @@ function TransactionShow() {
 	};
 	return (
 		<div>
-			<h3>Transaction Overview Below</h3>
-			<ul>
+			<h2>Transaction Overview Below</h2>
+			<ul className="show-list">
 				<li>
 					<p>Date: {transaction.date}</p>
 					<p>Name: {transaction.name}</p>
@@ -52,7 +53,7 @@ function TransactionShow() {
 				&nbsp;&nbsp;
 				<Link to={`/transactions/${id}/edit`}>Edit Form</Link>
 				&nbsp;&nbsp;
-				<Link to='transactions/new'>New Form</Link>
+				<Link to="/transactions/new">New Form</Link>
 			</div>
 		</div>
 	);
