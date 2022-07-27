@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const API = process.env.REACT_APP_API_URL;
 
 function TransactionShow() {
-	let { id } = useParams();
+	let id  = useParams();
 	const navigate = useNavigate();
 	const [transaction, setTransaction] = useState([]);
 
