@@ -39,6 +39,7 @@ function TransactionNew() {
 
 	return (
 		<div>
+			<h3>Add A New Item</h3>
 			<form onSubmit={formSubmission} className='new-form'>
 				<label>
 					{' '}
