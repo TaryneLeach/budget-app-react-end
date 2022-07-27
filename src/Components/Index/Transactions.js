@@ -18,8 +18,9 @@ function Transactions() {
 	// getting the total
 	let total = 0;
 	transactions.forEach((transaction) => {
-		total += transaction.amount;
-	});
+		total += transaction.amount
+		});
+		
 	return (
 		<div>
 			<h1>
