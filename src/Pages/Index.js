@@ -1,9 +1,10 @@
-import Transactions from './Components/Index/Transactions.js'
+import Transactions from '../Components/Index/Transactions'
+import React from 'react'
+
 
 function Index () {
     return (
         <div>
-        <h2>Index Page</h2>
         <Transactions />
         </div>
 

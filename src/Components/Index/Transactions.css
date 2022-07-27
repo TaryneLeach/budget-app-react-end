@@ -1,0 +1,25 @@
+h1 {
+    font-family: Georgia;
+}
+
+h2 {
+    font-family: Georgia;
+    text-decoration: underline;
+}
+
+.list {
+    list-style: none;
+    font-family: Georgia;
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
+}
+
+.list-blocks {
+    margin: 2%;
+    padding: 2px;
+    background-color: rgb(141, 88, 189);
+    border: 1px solid black;
+}
+
+
+

@@ -1,0 +1,21 @@
+.nav-header {
+    background-color: rgb(141, 88, 189);
+    font-family: Georgia;
+    color:rgb(188, 155, 219);
+    display: flex;
+    flex: 0.3;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.nav-links {
+    color:rgb(188, 155, 219);
+    font-family: Georgia;
+    
+}
+
+.nav-img {
+    max-width: 70px;
+    max-height: 70px;
+    margin-top: 20px;
+}
