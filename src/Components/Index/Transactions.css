@@ -1,12 +1,13 @@
 h1 {
     font-family: Georgia;
+    color:rgb(97, 40, 151)
    
 }
 
 h2 {
     font-family: Georgia;
     text-decoration: underline;
-    color:rgb(97, 40, 151)
+    color:rgb(188, 155, 219)
 }
 
 .list {
@@ -14,6 +15,7 @@ h2 {
     font-family: Georgia;
     display: grid;
     grid-template-columns: repeat(3,1fr); 
+    color: rgb(188, 155, 219);
 }
 
 .list-blocks {
