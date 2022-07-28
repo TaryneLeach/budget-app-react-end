@@ -3,14 +3,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './TransactionShow.css'
+import './TransactionShow.css';
 
 const API = process.env.REACT_APP_API_URL;
 
 function TransactionShow() {
-	let id  = useParams();
-	const navigate = useNavigate();
 	const [transaction, setTransaction] = useState([]);
+	let id = useParams();
+	const navigate = useNavigate();
 
 	// getting api info for the ids I made (did I need to make IDS?)
 	useEffect(() => {
@@ -20,21 +20,26 @@ function TransactionShow() {
 				setTransaction(res.data);
 			})
 			.catch((error) => {
-				navigate('/404/error');
+				navigate('/error');
 			});
 	}, [id, navigate]);
 
 	// handling deleting a transaction (project prompt doesn't say delete goes here but maybe?)
 
 	const deleteTransaction = () => {
-		axios.delete(`${API}/transactions/${id}`).then(() => {
-			alert('Transaction deleted!');
-		});
+		axios
+			.delete(`${API}/transactions/${id}`)
+			.then(() => {
+				navigate('/transactions');
+			})
+			.catch(() => {
+				console.warn('error');
+			});
 	};
 	return (
 		<div>
 			<h2>Transaction Overview Below</h2>
-			<ul className="show-list">
+			<ul className='show-list'>
 				<li>
 					<p>Date: {transaction.date}</p>
 					<p>Name: {transaction.name}</p>
@@ -53,7 +58,7 @@ function TransactionShow() {
 				&nbsp;&nbsp;
 				<Link to={`/transactions/${id}/edit`}>Edit Form</Link>
 				&nbsp;&nbsp;
-				<Link to="/transactions/new">New Form</Link>
+				<Link to='/transactions/new'>New Form</Link>
 			</div>
 		</div>
 	);

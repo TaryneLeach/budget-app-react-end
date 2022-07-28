@@ -16,25 +16,39 @@ function Transactions() {
 	});
 
 	// getting the total
-	let total = 0;
-	transactions.forEach((transaction) => {
-		total += transaction.amount
-		});
-		
+
+	const total = () => {
+		let sum = 0;
+		for (let transaction of transactions) {
+			sum += parseInt(transaction.amount);
+		}
+		return sum;
+	};
+
+	const accountTotal = total();
+
+	//   attempting to change total colors
+	const totalColor = (accountTotal) => {
+		if (accountTotal < 1000) {
+			return 'red';
+		} else if (accountTotal > 1000) return 'green';
+		else {
+			return 'beige';
+		}
+	};
+
 	return (
 		<div>
 			<h1>
-				{/* {total <= 1200
-					? style="color: green"
-					: style="color:red" } */}
-				Transaction's Total Amount: ${total}
+				Bank Account Total:{' '}
+				<span className={totalColor(accountTotal)}>${accountTotal}</span>
 			</h1>
 			<br></br>
 			<h2>September Transactions Overview</h2>
 			<ul className='list'>
 				{transactions.map((transaction, index) => {
 					return (
-						<li key={index} className="list-blocks">
+						<li key={index} className='list-blocks'>
 							<p>
 								<strong>Date:</strong> {transaction.date}
 							</p>

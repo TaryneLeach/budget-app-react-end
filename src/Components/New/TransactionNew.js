@@ -28,11 +28,7 @@ function TransactionNew() {
 		});
 	};
 
-	// handling select category option
-	// const handleCategory = (event) => {
-	// 	setTransaction({ ...transaction, [event.target.category]: event.target.value });
-	// };
-
+	
 	return (
 		<div>
 			<h3>Add A New Item</h3>
@@ -43,43 +39,56 @@ function TransactionNew() {
 						type='date'
 						id='date'
 						value={transaction.date}
+						required
 						onChange={newForm}
 					></input>
 				</label>
+				<br></br>
+				<br></br>
 				<label>
 					{' '}
 					<input
 						type='text'
 						id='item_name'
 						value={transaction.item_name}
-						placeholder='name'
+						placeholder='Name'
+						required
 						onChange={newForm}
 					></input>
 				</label>
+				<br></br>
+				<br></br>
 				<label>
 					<input
 						type='number'
 						id='amount'
 						value={transaction.amount}
-						placeholder='amount'
+						required
+						placeholder='Amount'
 						onChange={newForm}
 					></input>
 				</label>
+				<br></br>
+				<br></br>
 				<label>
 					{' '}
 					<input
 						type='text'
 						id='from'
 						value={transaction.from}
-						placeholder='from'
+						required
+						placeholder='From'
 						onChange={newForm}
 					></input>
 				</label>
-				{/* <select onChange={handleCategory}>
+				<br></br>
+				<br></br>
+				<select>
 					<option>
-					{transaction.category}
+					Choose a Category
 					</option>
-				</select> */}
+					{transaction.category}
+				</select>
 				<button type='submit'>Complete New Transaction</button>
 			</form>
 		</div>

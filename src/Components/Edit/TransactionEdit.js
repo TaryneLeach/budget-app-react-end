@@ -58,6 +58,8 @@ function TransactionEdit() {
 						onChange={formEdit}
 					></input>
 				</label>
+				<br></br>
+				<br></br>
 				<label>
 					{' '}
 					<input
@@ -68,6 +70,8 @@ function TransactionEdit() {
 						onChange={formEdit}
 					></input>
 				</label>
+				<br></br>
+				<br></br>
 				<label>
 					<input
 						type='number'
@@ -77,6 +81,8 @@ function TransactionEdit() {
 						onChange={formEdit}
 					></input>
 				</label>
+				<br></br>
+				<br></br>
 				<label>
 					{' '}
 					<input
